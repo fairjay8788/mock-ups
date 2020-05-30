@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Chelsea+Market&family=Poppins:wght@700&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body{
+    line-height: 1.3;
+}
+
+.container{
+    width: 100vw;
+    height:100vh;
+    background: url('../img/bg2.png') no-repeat center center/cover;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    /* to remove scroll bar at bottom */
+    overflow: hidden;
+}
+
+.container::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #333;
+    opacity: 0.7;
+}
+
+.container > div{
+    z-index:10;
+}
+
+.container .text-wrap{
+    flex:35%;
+    text-align: center;
+}
+
+.container .text-wrap h1{
+    font-size: 55px;
+    font-family: 'Poppins', sans-serif; 
+    color: antiquewhite;
+    margin:5vh 0;
+}
+
+.container .text-wrap p{
+    font-size: 25px;
+    font-family: 'Chelsea Market', cursive;
+    color: steelblue;
+}
+
+.container .img-wrap{
+    width:100%;
+    flex:65%;
+    padding-left: 25vw;
+    display: flex;
+    align-items: center;
+}
+
+.container .img-wrap .hero-img{
+    width:15vw;
+    height:27vw;
+    background-color:#333;
+    border: none;
+    border-radius: 10px;
+    box-shadow:-5px 0 10px 2px black;
+    margin-left:-5vw;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+    position: relative;
+}
+
+.container .img-wrap .hero-img:hover{
+    margin-right: 5vw;
+    transform: translateY(-30px);
+    box-shadow: -5px 0 20px 5px gold;
+}
+
+.container .img-wrap img{
+    width:100%;
+    height:100%;
+}
+
+.hero-img:first-child{
+    margin:0;
+}
+

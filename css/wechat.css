@@ -32,7 +32,7 @@ a{
 /* Main-header */
 #main-header{
     height:55vh;
-    background: url('../img/landscape.png') no-repeat center center/cover;
+    background: url('../img/bg1.png') no-repeat center center/cover;
     position: relative;
 }
 
