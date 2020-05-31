@@ -79,7 +79,7 @@ html, body{
 
 .container .img-wrap .hero-img:hover{
     margin-right: 5vw;
-    transform: translateY(-30px);
+    margin-bottom: 30px;
     box-shadow: -5px 0 20px 5px gold;
 }
 
@@ -92,3 +92,91 @@ html, body{
     margin:0;
 }
 
+/* Animation */
+
+.text-wrap h1{
+    transform: translateY(-50vh);
+    animation: h1move 0.5s linear 2s forwards;
+}
+
+.text-wrap p{
+    transform: translateX(-100vw);
+    animation: pmove 0.5s linear 2.5s forwards;
+}
+
+.img-wrap{
+    transform: translateY(-30px);
+    animation: imgsmove 0.5s linear 5.5s forwards;
+}
+
+.img-wrap .hero-img{
+    transform: translateX(100vw);
+}
+
+.img-wrap .hero-img:first-child{
+    animation: hero1move 0.5s ease-in-out 3s forwards;
+}
+
+.img-wrap .hero-img:nth-child(2){
+    animation: hero2move 0.5s ease-in-out 3.5s forwards;
+}
+
+.img-wrap .hero-img:nth-child(3){
+    animation: hero3move 0.5s ease-in-out 4s forwards;
+}
+
+.img-wrap .hero-img:nth-child(4){
+    animation: hero4move 0.5s ease-in-out 4.5s forwards;
+}
+
+.img-wrap .hero-img:nth-child(5){
+    animation: hero5move 0.5s ease-in-out 5s forwards;
+}
+
+@keyframes h1move{
+    to{
+        transform: translateY(0);
+    }
+}
+
+@keyframes pmove{
+    to{
+        transform: translateX(0);
+    }
+}
+
+@keyframes hero1move{
+    to{
+        transform: translateX(0);
+    }
+}
+
+@keyframes hero2move{
+    to{
+        transform: translateX(0);
+    }
+}
+
+@keyframes hero3move{
+    to{
+        transform: translateX(0);
+    }
+}
+
+@keyframes hero4move{
+    to{
+        transform: translateX(0);
+    }
+}
+
+@keyframes hero5move{
+    to{
+        transform: translateX(0);
+    }
+}
+
+@keyframes imgsmove{
+    to{
+        transform: translateY(0);
+    }
+}
