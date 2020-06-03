@@ -1,0 +1,228 @@
+:root{
+    --light-bg:lightblue;
+    --top-bg:darkblue;
+    --bottom-bg:rgba(0,0,255,0.7);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.4;
+}
+
+/* Main Header */
+
+#main-header{
+    background-color: var(--top-bg);
+    color: #f4f4f4;
+}
+
+#main-header .heading{
+    padding: 20px;
+    text-align: center;
+}
+
+#main-header .heading h3{
+    margin: 20px 0;
+}
+
+/* Navbar */
+
+.navbar{
+    background-color: var(--top-bg);
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.navbar > ul{
+    display: flex;
+    list-style-type: none;
+}
+
+.navbar .navitem{
+    padding: 1rem;
+    cursor: pointer;
+    position: relative;
+}
+
+.navbar .navitem:hover{
+    background-color: var(--light-bg);
+    color: black;
+}
+
+/* Dropdown menu */
+
+.navbar .drop-parent ul{
+    list-style-type: none;
+    position: absolute;
+    left: 0;
+    margin-top: 1rem;
+    width: 200px;
+    line-height: 1;
+    background-color: var(--light-bg);
+    height: 0;
+    overflow: hidden;
+    transition: height  0.2s ease;
+    color: black;
+}
+
+.navbar .drop-parent ul .drop-item{
+    padding: 1rem;
+    cursor: pointer;
+}
+
+.navbar .drop-parent ul .drop-item:hover{
+    color: #f4f4f4;
+    background-color: var(--top-bg);
+}
+
+/* Show Dropdown */
+.navbar .drop-service:hover ul{
+    height: 15rem; 
+    /* calculated based on 5 services and line-height:1 ,padding: 1rem */
+}
+
+.navbar .drop-blog:hover ul{
+    height: 12rem; 
+    /* calculated based on 4 blogs and line-height:1 ,padding: 1rem */
+}
+
+/* Timeline */
+
+#timeline{
+    padding: 50px 20px;
+    background-color: var(--bottom-bg);
+    overflow: hidden;
+}
+
+#timeline .timeline-item{
+    list-style-type: none;
+    width: 5px;
+    padding: 20px 0;
+    margin:0 auto;
+    background-color: #f4f4f4;
+    position: relative;
+}
+
+#timeline .timeline-item .timeline-item-content{
+    position: relative;
+    padding: 1rem;
+    color: #f4f4f4;
+    border-radius: 10px;
+    left: 35px;
+    width: 500px;
+    background-color: coral;
+}
+
+/* Timeline Dot */
+
+#timeline .timeline-item::after{
+    content: '';
+    width: 15px;
+    height: 15px;
+    background-color: coral;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    bottom: 30px;
+    /* 10px + 20px (match arrow 10px and raise 20px bottom padding) */
+    transform: translateX(-50%);
+}
+
+/* Timeline content arrow */
+
+#timeline .timeline-item .timeline-item-content::after{
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: -12px;
+    bottom: 10px;
+    border-width: 6px 12px 6px 0;
+    border-style: solid;
+    border-color: transparent coral transparent transparent;
+}
+
+/* Timeline content left */
+
+#timeline .timeline-item:nth-child(even) .timeline-item-content{
+    left: -530px;
+}
+
+#timeline .timeline-item:nth-child(even) .timeline-item-content::after{
+    left:calc(100%);
+    border-width: 6px 0 6px 12px;
+    border-color: transparent transparent transparent coral;
+}
+
+/* Timeline content animation */
+
+#timeline .timeline-item:nth-child(odd) .timeline-item-content{
+    animation: enter-right 1s ease-in-out;
+}
+
+#timeline .timeline-item:nth-child(even) .timeline-item-content{
+    animation: enter-left 1s ease-in-out;
+}
+
+@keyframes enter-right{
+    from{
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes enter-left{
+    from{
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Media Query */
+
+@media (max-width:1200px){
+    #timeline .timeline-item .timeline-item-content{
+        width: 400px;
+    }
+    #timeline .timeline-item:nth-child(even) .timeline-item-content{
+        left: -430px;
+    }
+}
+
+@media (max-width:900px){
+    #timeline .timeline-item{
+        margin-left: 20px;
+    }
+    #timeline .timeline-item .timeline-item-content{
+        width: calc(100vw - 100px);
+    }
+    #timeline .timeline-item:nth-child(even) .timeline-item-content{
+        left: 35px;
+        animation: enter-right 1s ease-in-out;
+
+    }
+    #timeline .timeline-item:nth-child(even) .timeline-item-content::after{
+        left: -12px;
+        border-width: 6px 12px 6px 0;
+        border-color: transparent coral transparent transparent;
+    }
+    .navbar .navitem{
+        padding: 1rem 10px;
+    }
+
+}
