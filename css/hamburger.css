@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Raleway:ital,wght@1,300&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body{
+    line-height: 1.4;
+    font-family: 'Raleway', sans-serif;
+}
+
+.container{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    color: #f4f4f4;
+    background: rgba(46, 134, 193, 0.8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.container::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../img/2.jpg') no-repeat center center/cover;
+    z-index: -1;
+}
+
+.container h2{
+    margin: 30px 0;
+}
+
+/* Hamburger checkbox */
+
+.menu-wrap{
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    top:5px;
+    left: 5px;
+    z-index: 1;
+}
+
+.menu-wrap .toggler{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top:0px;
+    left: 0px;
+    cursor: pointer;
+    border: none;
+    opacity: 0;
+    z-index: 3;
+}
+
+/* Hamburger Icon */
+
+.menu-wrap .hambuger-container{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top:0px;
+    left: 0px;
+    padding: 24px 10px;
+    background-color: rgb(46, 134, 193);
+    z-index: 2;
+
+}
+
+/* Middle Layer */
+
+.menu-wrap .hambuger-container .hamburger-layer{
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    position: relative;
+    transition: all 0.5s ease;
+}
+
+/* Top and Bottom Layer */
+
+.menu-wrap .hambuger-container .hamburger-layer::before{
+    content: '';
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    background-color: white;
+    top: -10px;
+}
+
+.menu-wrap .hambuger-container .hamburger-layer::after{
+    content: '';
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    background-color: white;
+    top: 10px;
+}
+
+/* Click effect of Hamburger */
+
+.menu-wrap .toggler:checked + .hambuger-container > .hamburger-layer{
+    transform: rotate(225deg);
+}
+
+.menu-wrap .toggler:checked + .hambuger-container > .hamburger-layer::before, 
+.menu-wrap .toggler:checked + .hambuger-container > .hamburger-layer::after{
+    top: 0;
+    transform: rotate(90deg);
+}
+
+/* Hover effect of X */
+
+.menu-wrap .toggler:checked:hover + .hambuger-container > .hamburger-layer{
+    transform: rotate(315deg);
+}
+
+/* Overlay Menu */
+
+.menu-wrap .overlay-container{
+    position:fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+}
+
+.menu-wrap .overlay-container .overlay{
+    width: 200vmax;
+    height: 200vmax;
+    flex: none;
+    border-radius: 50%;
+    background-color: rgba(50, 50, 50, 0.8);
+    transform: scale(0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 1s ease-in-out;
+}
+
+.menu-wrap .overlay-container .overlay ul.menu{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    list-style-type: none;
+    font-family: 'Lato', sans-serif;
+    font-size: 1.5rem;
+    color: coral;
+    transition: opacity 0.5s ease 0.5s;
+}
+
+.menu-wrap .overlay-container .overlay ul.menu li{
+    margin: 20px 0;
+    cursor: pointer;
+}
+
+.menu-wrap .overlay-container .overlay ul.menu li:hover{
+    color:gold;
+}
+
+/* Show Overlay Menu */
+
+.menu-wrap .toggler:checked ~ .overlay-container{
+    visibility: visible;
+}
+
+.menu-wrap .toggler:checked ~ .overlay-container .overlay{
+    transform: scale(1);
+}
+
+.menu-wrap .toggler:checked ~ .overlay-container .overlay .menu{
+    opacity: 1;
+}
